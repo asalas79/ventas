@@ -1,0 +1,124 @@
+<ion-header >
+  <ion-toolbar>   
+
+    <ion-buttons slot="start">
+      <ion-button (click)="regresar()">
+         <ion-icon  name="close-outline" slot="icon-only" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons> 
+
+    <ion-label>Fecha: {{ datosEmpresa.fecha1 }} - {{ datosEmpresa.fecha2  }}</ion-label>
+    <ion-label slot="end" style="padding-right: 10px;">{{ datosEmpresa.empresaNombre }}</ion-label>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <h1>Maximo permitido <span *ngIf="!persmisosEmpresa.verificarN" style="color: red;"> (Solo es informativo no actualiza en el sistema real)</span></h1>            
+      </ion-label>
+    </ion-item>
+    <ion-grid class="ion-margin">
+      <ion-row>
+        <ion-col>Guias</ion-col>
+        <ion-col>Agencias</ion-col>
+        <ion-col>Usuarios</ion-col>
+        <ion-col>Paquetes</ion-col>
+        <ion-col>Vehiculos</ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col>{{ persmisosEmpresa.guiasN }}</ion-col>
+        <ion-col>{{ persmisosEmpresa.agenciasN }}</ion-col>
+        <ion-col>{{ persmisosEmpresa.usuariosN }}</ion-col>
+        <ion-col>{{ persmisosEmpresa.paquetesN }}</ion-col>
+        <ion-col>{{ persmisosEmpresa.vehiculosN }}</ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <h1>Guias realizadas</h1>            
+      </ion-label>
+    </ion-item>
+    <ion-grid class="ion-margin">
+      <ion-row>
+        <ion-col>Guias</ion-col>
+        <ion-col>Peso</ion-col>
+        <ion-col>Flete</ion-col>
+        <ion-col>Seguro</ion-col>
+        <ion-col>Total</ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col>{{ guias.total_filas }}</ion-col>
+        <ion-col>{{ guias.peso }}</ion-col>
+        <ion-col>${{ guias.flete | number:'1.2-2' }}</ion-col>
+        <ion-col>${{ guias.seguro | number:'1.2-2' }}</ion-col>
+        <ion-col>${{ guias.total_valor | number:'1.2-2' }}</ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <h1>Agencias</h1>            
+      </ion-label>
+    </ion-item>
+
+    <ion-grid class="ion-margin">
+      <ion-row>
+        <ion-col>Agencias</ion-col>       
+        <ion-col>Usuarios</ion-col>
+        <ion-col>casilleros</ion-col> 
+        <ion-col>Clientes</ion-col>   
+      </ion-row>
+      <ion-row >
+        <ion-col>{{ agencias.total_filas }}</ion-col>              
+        <ion-col>{{ usuarios.total_filas }}</ion-col>        
+        <ion-col>{{ casilleros.total_filas }}</ion-col>        
+       
+        <ion-col>{{ person.total_filas }}</ion-col>     
+      </ion-row>
+    </ion-grid>
+
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <h1>Bodega</h1>            
+      </ion-label>
+    </ion-item>
+    <ion-grid class="ion-margin">
+      <ion-row>
+        <ion-col>Paquetes</ion-col>
+        <ion-col>Peso</ion-col>
+        <ion-col></ion-col>
+        <ion-col></ion-col>
+        <ion-col>Declarado</ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col> {{ paquete.total_filas }}</ion-col>
+        <ion-col> {{ paquete.peso }}</ion-col>
+        <ion-col> </ion-col>
+        <ion-col> </ion-col>
+        <ion-col> ${{ paquete.total_valor | number:'1.2-2' }}</ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <h1>Extras</h1>            
+      </ion-label>
+    </ion-item>
+    <ion-grid class="ion-margin">
+      <ion-row>
+        <ion-col>Twilio</ion-col>
+        <ion-col>Web</ion-col>
+        <ion-col>Pwa</ion-col>
+        <ion-col>Vehiculos</ion-col>      
+      </ion-row>
+      <ion-row >
+        <ion-col> <span *ngIf="datosEmpresa.empresa.twilio === '1'">SI</span> <span *ngIf="!datosEmpresa.empresa.twilio">NO</span></ion-col>
+        <ion-col> <span *ngIf="datosEmpresa.empresa.web === '1'">SI</span> <span *ngIf="!datosEmpresa.empresa.web">NO</span></ion-col>
+        <ion-col> <span *ngIf="datosEmpresa.empresa.pwa === '1'">SI</span> <span *ngIf="!datosEmpresa.empresa.pwa">NO</span></ion-col>   
+        <ion-col> <span *ngIf="datosEmpresa.empresa.vehiculos === '1'">SI</span> <span *ngIf="!datosEmpresa.empresa.vehiculos">NO</span></ion-col>        
+      </ion-row>
+    </ion-grid>
+
+</ion-content>

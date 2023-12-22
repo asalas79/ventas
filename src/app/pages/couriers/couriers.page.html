@@ -1,0 +1,67 @@
+<app-header></app-header>
+
+
+<ion-content class="ion-padding">
+
+  <ion-row class="ion-padding">
+    <ion-col size-xs-12 size-lg-="6">
+        <label for="basic"><strong>Fecha inicial:</strong> </label>
+        <p-calendar inputId="basic" [(ngModel)]="date1" dateFormat="yy-mm-dd"></p-calendar>
+    </ion-col>
+    <ion-col size-xs-12 size-lg-="6">
+      <label for="basic1"><strong>Fecha final:</strong></label>
+      <p-calendar inputId="basic1" [(ngModel)]="date2" dateFormat="yy-mm-dd"></p-calendar>
+    </ion-col>
+  </ion-row> 
+  
+  <p-divider align="left" type="dashed"></p-divider>
+  <ion-searchbar animated="true" placeholder="Buscar empresa" inputmode="text" 
+    (ionChange) = "onSearchChange ( $event )"
+   
+  ></ion-searchbar>
+  <div class="card">
+    <ion-button size="small" (click)="excel()">Excel</ion-button>
+    <ion-button size="small" (click)="nueva()">+</ion-button>
+    <p-table [value]="listadoEmpresas | filtro:textoBuscar">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="Link">Link </th>
+                <th pSortableColumn="nombre">Nombre</th>
+                <th pSortableColumn="contacto">Contacto</th>               
+                <th pSortableColumn="url">URL</th>                
+                <th pSortableColumn="fechaingreso.date">Fecha</th>                
+                <th pSortableColumn="pagomensual">Cuota</th>
+                <!--<th pSortableColumn="formadepago">Pago</th>-->
+                <th pSortableColumn="version">Version</th>
+                <th pSortableColumn="inactivo">Activo</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-empresa>
+            <tr>
+                <td>
+                    <ion-button (click)="verEmpresa( empresa.id,empresa.nombre,empresa )"  fill="clear" shape="round">
+                        <ion-icon   color="warning" style="font-size:20px;" name="business-outline"></ion-icon>
+                    </ion-button>
+                    <ion-button (click)="editarEmpresa( empresa )"  fill="clear" shape="round">                        
+                        <ion-icon color="danger" style="font-size:20px;" name="create-outline"></ion-icon>
+                    </ion-button>
+                    
+                </td>
+                <td>{{empresa.nombre}}</td>
+                <td>{{empresa.contacto}}</td>               
+                <td (click)="abrirBrowswer(empresa.url)">
+                   <ion-item  lines="none">
+                    <ion-label (click)="abrirBrowswer(empresa.url)" style="cursor: pointer;">Ver</ion-label>
+                   </ion-item>
+                 </td>
+                <td>{{empresa.fechaingreso.date | date}}</td>
+                <td>${{ empresa.pagomensual }}</td>
+                <!--<td>{{empresa.formadepago}}</td>-->
+                <td>{{empresa.version}}</td>
+                <td><span *ngIf="empresa.inactivo==='1'"><ion-icon color="danger" name="sunny-outline"></ion-icon></span> <span *ngIf="!empresa.inactivo "><ion-icon color="success" name="sunny-outline"></ion-icon></span></td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+</ion-content>

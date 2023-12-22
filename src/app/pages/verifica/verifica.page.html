@@ -1,0 +1,16 @@
+<ion-content class="login-content">
+  <div class="login-container">
+  <div class="ion-text-center">
+    <div class="login-container">
+      <h1 class="login-title">Verificación</h1>
+      <form class="login-form" (ngSubmit)="validarEmail(fvalidar)" #fvalidar="ngForm">
+        <ion-item class="login-input">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" name="email" [(ngModel)]="loginUser.email" required></ion-input>
+        </ion-item>
+        <ion-button expand="block" color="primary" type="submit" class="login-button">Enviar código</ion-button>
+      </form>
+    </div>
+  </div>
+</div>
+</ion-content>

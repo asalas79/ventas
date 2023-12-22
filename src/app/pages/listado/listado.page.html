@@ -1,0 +1,72 @@
+
+<app-header></app-header>
+<ion-content>  
+
+  <ion-row class="ion-padding">
+    <ion-col size-xs-12 size-lg-="6">
+        <label for="basic"><strong>Fecha inicial:</strong> </label>
+        <p-calendar inputId="basic" [(ngModel)]="date1" dateFormat="yy-mm-dd"></p-calendar>
+    </ion-col>
+    <ion-col size-xs-12 size-lg-="6">
+      <label for="basic1"><strong>Fecha final:</strong></label>
+      <p-calendar inputId="basic1" [(ngModel)]="date2" dateFormat="yy-mm-dd"></p-calendar>
+    </ion-col>
+  </ion-row> 
+  
+  <p-divider align="left" type="dashed"></p-divider>
+
+  <ion-list>        
+    <div class="borde" *ngFor="let listado of listadoEmpresas; let indice = index" >
+      <ion-item>
+        <ion-grid class="ion-align-items-start">
+          <ion-row>
+              <ion-col size-md="1">
+                <ion-button (click)="verEmpresa( listado.id )"  fill="clear" shape="round">
+                    <ion-icon   color="warning" style="font-size:20px;" name="business-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col size-md="3">
+                <ion-label><strong>{{ listado.nombre }}</strong></ion-label>
+              </ion-col>
+              <ion-col size-md="3">
+                <ion-label>{{ listado.contacto }}</ion-label>
+              </ion-col>
+              <ion-col size-md="3">
+                <ion-label>Tel: {{ listado.telefono }}</ion-label>
+              </ion-col>          
+          </ion-row>
+
+          <br>
+          <ion-row>
+              <ion-col size-md="1">            
+              </ion-col>
+              <ion-col size-md="3">
+                <ion-label>{{ listado.email }}</ion-label>
+              </ion-col>
+              <ion-col size-md="3">
+                <ion-label>{{ listado.pais }}</ion-label>
+              </ion-col>
+              <ion-col size-md="3">
+                <ion-label>{{ listado.ciudad }}</ion-label>
+              </ion-col>          
+          </ion-row>
+
+          <br>
+          <ion-row>
+            <ion-col size-md="1">            
+            </ion-col>
+            <ion-col size-md="4">
+              <ion-label>{{ listado.url}}</ion-label>
+            </ion-col>
+            <ion-col size-md="3">
+              <ion-label> {{ listado.fechaingreso.date }}</ion-label>
+            </ion-col>                             
+          </ion-row>
+        </ion-grid>
+      
+      </ion-item>
+  
+    </div>
+  </ion-list>
+
+</ion-content>

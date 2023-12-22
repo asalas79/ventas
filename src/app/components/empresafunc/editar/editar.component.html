@@ -1,0 +1,189 @@
+<ion-header >
+  <ion-toolbar>   
+
+    <ion-buttons slot="start">
+      <ion-button (click)="regresar()">
+         <ion-icon  name="close-outline" slot="icon-only" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons> 
+
+    <ion-label>Editar empresa</ion-label>
+    <ion-label slot="end" style="padding-right: 10px;"></ion-label>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form class="login-form" (ngSubmit) ="editarEmpresa( feditar )" #feditar="ngForm">
+    <ion-item>
+      <ion-label position="floating">Nombre empresa</ion-label>
+      <ion-icon name="business-outline" slot="start"></ion-icon>
+      <ion-input type="text" name="nombre" [(ngModel)]="NuevaEmpresa.nombre" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">URL</ion-label>
+      <ion-icon name="globe-outline" slot="start"></ion-icon>
+      <ion-input type="url" name="url" [(ngModel)]="NuevaEmpresa.url" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Contacto</ion-label>
+      <ion-icon name="person-outline" slot="start"></ion-icon>
+      <ion-input type="text" name="contacto" [(ngModel)]="NuevaEmpresa.contacto" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Valor</ion-label>
+      <ion-icon name="cash-outline" slot="start"></ion-icon>
+      <ion-input type="number" name="pagomensual" [(ngModel)]="NuevaEmpresa.pagomensual" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Forma de pago</ion-label>
+      <ion-icon name="card-outline" slot="start"></ion-icon>
+      <ion-input type="text" name="formadepago" [(ngModel)]="NuevaEmpresa.formadepago" required> </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Vehículos</ion-label>
+      <ion-icon name="car-outline" slot="start"></ion-icon>
+      <ion-select name="vehiculos" [(ngModel)]="NuevaEmpresa.vehiculos">
+        <ion-select-option value="0" selected>Sin vehículos</ion-select-option>
+        <ion-select-option value="1">Con vehículos</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">PWA</ion-label>
+      <ion-icon name="globe-outline" slot="start"></ion-icon>
+      <ion-select name="pwa" [(ngModel)]="NuevaEmpresa.pwa">
+        <ion-select-option value="0" selected>No PWA</ion-select-option>
+        <ion-select-option value="1">Con PWA</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">App móvil</ion-label>
+      <ion-icon name="phone-portrait-outline" slot="start"></ion-icon>
+      <ion-select name="appmovil" [(ngModel)]="NuevaEmpresa.appmovil">
+        <ion-select-option value="0" selected>Sin app móvil</ion-select-option>
+        <ion-select-option value="1">Con app móvil</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Web</ion-label>
+      <ion-icon name="globe-outline" slot="start"></ion-icon>
+      <ion-select name="web" [(ngModel)]="NuevaEmpresa.web">
+        <ion-select-option value="0" selected>Sin sitio web</ion-select-option>
+        <ion-select-option value="1">Con sitio web</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Twilio</ion-label>
+      <ion-icon name="call-outline" slot="start"></ion-icon>
+      <ion-select name="twilio" [(ngModel)]="NuevaEmpresa.twilio">
+        <ion-select-option value="0" selected>Sin Twilio</ion-select-option>
+        <ion-select-option value="1">Con Twilio</ion-select-option>
+      </ion-select>
+    </ion-item>   
+    
+    
+    <ion-item>
+      <ion-label position="floating">Estado de la empresa:</ion-label>
+      <ion-icon name="call-outline" slot="start"></ion-icon>
+      <ion-select name="inactivo" [(ngModel)]="NuevaEmpresa.inactivo">
+        <ion-select-option value="0" selected>Activada</ion-select-option>
+        <ion-select-option value="1">Desactivada</ion-select-option>
+      </ion-select>
+    </ion-item>  
+
+    <ion-item>
+      <ion-label position="floating">Versión</ion-label>
+      <ion-icon name="document-outline" slot="start"></ion-icon>
+      <ion-input type="text" name="version" [(ngModel)]="NuevaEmpresa.version"></ion-input>
+    </ion-item>
+    <hr>
+    <ion-grid>
+      <ion-row>
+        <!-- Columna 1 -->
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="floating">Guias permitidas por mes</ion-label>
+            <ion-icon name="document-outline" slot="start"></ion-icon>
+            <ion-input type="text" name="guiasN" [(ngModel)]="NuevaEmpresa.guiasN"></ion-input>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label position="floating">Usuarios Permitidos</ion-label>
+            <ion-icon name="document-outline" slot="start"></ion-icon>
+            <ion-input type="text" name="usuariosN" [(ngModel)]="NuevaEmpresa.usuariosN"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Agencias Permitidas</ion-label>
+            <ion-icon name="document-outline" slot="start"></ion-icon>
+            <ion-input type="text" name="agenciasN" [(ngModel)]="NuevaEmpresa.agenciasN"></ion-input>
+          </ion-item>
+        </ion-col>
+    
+        <!-- Columna 2 -->
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="floating">Paquetes Permitidos</ion-label>
+            <ion-icon name="document-outline" slot="start"></ion-icon>
+            <ion-input type="text" name="paquetesN" [(ngModel)]="NuevaEmpresa.paquetesN"></ion-input>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label position="floating">Vehiculos permitidos</ion-label>
+            <ion-icon name="document-outline" slot="start"></ion-icon>
+            <ion-input type="text" name="vehiculosN" [(ngModel)]="NuevaEmpresa.vehiculosN"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+    <hr>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label>Permitir Casillero</ion-label>
+            <ion-checkbox [checked]="NuevaEmpresa.Pcasillero === '1'" name="Pcasillero" (ionChange)="updateCheckbox('Pcasillero', $event)"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+    
+        <ion-col size="6">
+          <ion-item>
+            <ion-label>Permitir Rutas</ion-label>
+            <ion-checkbox [checked]="NuevaEmpresa.Prutas === '1'" name="Prutas" (ionChange)="updateCheckbox('Prutas', $event)"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    
+      <ion-row>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label>Permitir Modulos</ion-label>
+            <ion-checkbox [checked]="NuevaEmpresa.Pmodulos === '1'" name="Pmodulos" (ionChange)="updateCheckbox('Pmodulos', $event)"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+    
+        <ion-col size="6">
+          <ion-item>
+            <ion-label color="danger">Aviso de cobro</ion-label>
+            <ion-checkbox [checked]="NuevaEmpresa.avisodecobro === '1'" name="avisodecobro" (ionChange)="updateCheckbox('avisodecobro', $event)"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>    
+    
+    <ion-item class="ion-text-center" lines="none">
+      <ion-button type="submit" expand="block" color="primary" style="text-align: center;" >Enviar</ion-button>
+    </ion-item>
+    
+  </form>
+</ion-content>

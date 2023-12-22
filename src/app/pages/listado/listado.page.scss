@@ -1,0 +1,23 @@
+
+ion-grid.ion-align-items-start ion-col {
+    text-align: left;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    ion-grid {
+      display: block;
+    }
+  
+    ion-row {
+      display: block;
+    }
+  
+    ion-col {
+      display: block;
+    }
+  
+    ion-label {
+      text-align: left;
+    }
+  }
+  

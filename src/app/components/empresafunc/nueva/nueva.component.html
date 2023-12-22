@@ -1,0 +1,66 @@
+<ion-header >
+  <ion-toolbar>   
+
+    <ion-buttons slot="start">
+      <ion-button (click)="regresar()">
+         <ion-icon  name="close-outline" slot="icon-only" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons> 
+
+    <ion-label>Nueva empresa</ion-label>
+    <ion-label slot="end" style="padding-right: 10px;"></ion-label>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form class="login-form" (ngSubmit) ="nuevaEmpresa( fnueva )" #fnueva="ngForm">
+    <ion-item>
+      <ion-label position="floating">Nombre empresa</ion-label>
+      <ion-icon name="business-outline" slot="start"></ion-icon>
+      <ion-input type="text" name="nombre" [(ngModel)]="NuevaEmpresa.nombre" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">URL</ion-label>
+      <ion-icon name="globe-outline" slot="start"></ion-icon>
+      <ion-input type="url" name="url" [(ngModel)]="NuevaEmpresa.url" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Contacto</ion-label>
+      <ion-icon name="person-outline" slot="start"></ion-icon>
+      <ion-input type="text" name="contacto" [(ngModel)]="NuevaEmpresa.contacto" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Valor</ion-label>
+      <ion-icon name="cash-outline" slot="start"></ion-icon>
+      <ion-input type="number" name="pagomensual" [(ngModel)]="NuevaEmpresa.pagomensual" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Forma de pago</ion-label>
+      <ion-icon name="card-outline" slot="start"></ion-icon>
+      <ion-input type="text" name="formadepago" [(ngModel)]="NuevaEmpresa.formadepago" required> </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Versión</ion-label>
+      <ion-icon name="document-outline" slot="start"></ion-icon>
+      <ion-input type="text" name="version" [(ngModel)]="NuevaEmpresa.version"></ion-input>
+    </ion-item>
+   
+    <ion-item style="--min-height: 70px;">
+      <ion-label >Fecha de ingreso</ion-label>
+      <ion-icon name="calendar-outline" slot="start" ></ion-icon>
+      <ion-input type="date" min="YYYY-MM-DD" name="fechaingreso" [(ngModel)]="NuevaEmpresa.fechaingreso" required></ion-input>
+    </ion-item>
+    
+
+    <ion-item class="ion-text-center" lines="none">
+      <ion-button type="submit" expand="block" color="primary" style="text-align: center;">Enviar</ion-button>
+    </ion-item>
+    
+  </form>
+</ion-content>

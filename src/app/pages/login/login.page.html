@@ -1,0 +1,23 @@
+<ion-content>
+  <div class="login-container">
+    <div class="logo-container">
+      <img src="assets/logo.png" alt="Logo de la aplicación" class="logo">
+    </div>
+    <h2></h2>
+    <form class="login-form" (ngSubmit) ="login( fLogin )" #fLogin="ngForm">
+      <ion-item>
+        <ion-label position="floating">Nombre de usuario</ion-label>
+        <ion-input type="text" name="email" [(ngModel)]="loginUser.email" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" name="password" [(ngModel)]="loginUser.clave" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Codigo</ion-label>
+        <ion-input type="text" name="codigo" [(ngModel)]="loginUser.codigo" required></ion-input>
+      </ion-item>
+      <ion-button expand="block" color="primary" type="submit">Iniciar sesión</ion-button>
+    </form>
+  </div>
+</ion-content>

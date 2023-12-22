@@ -1,0 +1,36 @@
+.logo {
+    height: 120px;
+  }
+  
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    //margin-top: 50px;
+  }
+  
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .login-form {
+    width: 80%;
+    max-width: 350px;
+  }
+  
+  ion-item {
+    margin-bottom: 20px;
+  }
+  
+  ion-button {
+    margin-top: 20px;
+  }
+  
+  ion-content {
+    overflow: hidden;
+  }
+  

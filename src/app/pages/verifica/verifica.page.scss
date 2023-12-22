@@ -1,0 +1,34 @@
+.login-content {
+    --background: #f2f2f2;
+  }
+
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    //margin-top: 50px;
+  }
+  
+  .login-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+  
+  .login-input {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  ion-item.login-input ion-input {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .login-button {
+    margin-top: 1.5rem;
+  }
+  
