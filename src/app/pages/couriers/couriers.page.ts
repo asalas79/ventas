@@ -8,6 +8,7 @@ import { TextoService } from '../../funciones/texto.service';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { NuevaComponent } from 'src/app/components/empresafunc/nueva/nueva.component';
 import { EditarComponent } from 'src/app/components/empresafunc/editar/editar.component';
+import { AbonoComponent } from 'src/app/components/abono/abono.component';
 
 
 @Component({
@@ -54,8 +55,8 @@ export class CouriersPage implements OnInit {
         if( resp.ok ){
           if( resp.ok ){
             //this.ui.presentToas ( 'No hay mas empresas','warning',1500 );
-            //console.log(resp.empresas);
-            this.listadoEmpresas.push(...resp.empresas ); 
+           //console.log(resp.empresas);
+            this.listadoEmpresas.push(...resp.empresas );             
           }
 
         }else{
@@ -131,10 +132,26 @@ export class CouriersPage implements OnInit {
     modal.present();
  }
 
+ async ingresarAbono( empresa:any){    
+    const modal = await this.modalCtrl.create({
+      component: AbonoComponent,
+      animated: true,   
+      componentProps: {empresaid:empresa},    
+      cssClass: 'fullscreenModalEmpresa'
+    });
+    modal.onDidDismiss().then((data) => {  
+      if(data.data === 'ok'){      
+        this.siguientes();
+      }
+    });
+    modal.present();
+ }
+
  async editarEmpresa(empresa: any){
 
     const modal = await this.modalCtrl.create({
       component: EditarComponent,
+      animated: true,   
       componentProps: {NuevaEmpresa:empresa}
     });
 

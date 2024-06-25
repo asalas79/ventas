@@ -41,7 +41,8 @@ export class VerificaPage implements OnInit {
     }
 
     const valido = await this.usuarioService.verificaEmail( this.loginUser.email);
-
+    this.navctrl.navigateRoot( '/login',{ animated: true } );
+    
     if( valido ){
       this.uiservice.presentToas('Se envio un email con tu codigo','primary',5000);
       this.navctrl.navigateRoot( '/login',{ animated: true } );

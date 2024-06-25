@@ -6,6 +6,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { NuevaComponent } from './empresafunc/nueva/nueva.component';
 import { FormsModule } from '@angular/forms';
 import { EditarComponent } from './empresafunc/editar/editar.component';
+import { AbonoComponent } from './abono/abono.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { EditarComponent } from './empresafunc/editar/editar.component';
     EmpresaComponent,
     HeaderComponent,
     NuevaComponent,
-    EditarComponent    
+    EditarComponent,
+    AbonoComponent  
   ],
   exports:[
     EmpresaComponent,

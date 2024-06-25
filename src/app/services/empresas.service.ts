@@ -46,7 +46,7 @@ export class EmpresasService {
       this.http.post(`${ URL }/editarempresa`,(data)).
         subscribe ( async (resp: any) => {
 
-            console.log( resp );
+           // console.log( resp );
 
             if( resp['ok']){
               resolve(true);
@@ -54,6 +54,20 @@ export class EmpresasService {
               resolve(false);
             }
 
+        });
+    })
+  }
+
+  nuevoAbono( data: any){
+    return new Promise( resolve => {
+      this.http.post(`${ URL }/nuevoabono`,(data)).
+        subscribe ( async (resp: any) => {
+           // console.log( resp );
+            if( resp['ok']){
+              resolve(true);
+            }else{
+              resolve(false);
+            }
         });
     })
   }

@@ -32,9 +32,7 @@ export class EditarComponent  implements OnInit {
   }
 
   async editarEmpresa( feditar: NgForm ){
-
-    console.log(this.NuevaEmpresa)
-
+   
     if(feditar.invalid){
       this.uiservice.presentToas('Faltan campos requeridos?','danger',3000);
       return

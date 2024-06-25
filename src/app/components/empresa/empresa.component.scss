@@ -1,25 +1,45 @@
 ion-grid {
-    --ion-grid-column-padding: 10px;
-    border-collapse: collapse;
-    border-style: hidden;
-    
-    ion-row:first-child {
-      background-color:  #455eb1;
-      color: azure;
-      font-weight: bold;
-    }
-    ion-col {
-      border: 1px solid black;
-      border-bottom: 0;
-      border-right: 0;
-    }
-    ion-col:last-child {
-      border-right: 1px solid black;
-    }
-    
-    ion-row:last-child {
-      border-bottom: 1px solid black;
-    }
+  --ion-grid-column-padding: 10px;
+  border-collapse: collapse;
+  border-style: hidden;
+
+  ion-row:first-child {
+    background-color: #8eaf2a;
+    color: azure;
+    font-weight: bold;
   }
 
-  
+  ion-col {
+    border: 1px solid black;
+    border-bottom: 0;
+    border-right: 0;
+
+  }
+
+  ion-col:last-child {
+    border-right: 1px solid black;
+  }
+
+  ion-row:last-child {
+    border-bottom: 1px solid black;
+  }
+
+}
+
+.table-container {
+  width: 97%;
+  overflow-x: auto;
+  max-width: 100%;
+  padding: 15px;
+  margin-right: 35px;  
+  margin-left: 15px;  
+  margin-bottom: 15px;
+}
+
+td {
+  border: 1px solid #ddd;  
+  padding: 5px;  
+  text-align: left;  
+}
+
+

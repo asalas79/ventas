@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="regresar()">
+        <ion-icon name="close-outline" slot="icon-only" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-label><strong>Nuevo pago</strong></ion-label>
+    <ion-label slot="end" style="padding-right: 10px;"></ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form class="login-form" (ngSubmit)="nuevoAbono( fabono )" #fabono="ngForm">
+    <ion-grid>
+      <ion-row>
+
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="floating">Codigo:</ion-label>
+            <ion-icon name="code-working-outline" slot="start"></ion-icon>
+            <ion-input type="text" name="codigo" [(ngModel)]="empresa.codigo" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Año:</ion-label>
+            <ion-icon name="calendar-outline" slot="start"></ion-icon>
+            <ion-select name="ano" [(ngModel)]="empresa.ano">
+              <ion-select-option *ngFor="let ano of anos" [value]="ano.valor">{{ ano.nombre }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+
+        <!-- Columna 1 -->
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="floating">Referencia de pago:</ion-label>
+            <ion-icon name="flag-outline" slot="start"></ion-icon>
+            <ion-input type="text" name="referencia" [(ngModel)]="empresa.referencia" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Mes:</ion-label>
+            <ion-icon name="calendar-outline" slot="start"></ion-icon>
+            <ion-select name="mes" [(ngModel)]="empresa.mes">
+              <ion-select-option *ngFor="let mes of meses" [value]="mes.valor">{{ mes.nombre }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+
+        <!-- Columna 2 -->
+        <ion-col size="6">
+
+          <ion-item>
+            <ion-label position="floating">Valor a pagar:</ion-label>
+            <ion-icon name="cash-outline" slot="start"></ion-icon>
+            <ion-input type="number" name="valor" [(ngModel)]="empresa.valor" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Status de pago:</ion-label>
+            <ion-icon name="bookmark-outline" slot="start"></ion-icon>
+            <ion-select name="statusdepago" [(ngModel)]="empresa.statusdepago">
+              <ion-select-option *ngFor="let tipo of tipos" [value]="tipo.valor">{{ tipo.nombre }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Metodo de pago:</ion-label>
+            <ion-icon name="logo-paypal" slot="start"></ion-icon>
+            <ion-select name="metodopago" [(ngModel)]="empresa.metodopago" required>
+              <ion-select-option *ngFor="let metodo of pagovarios" [value]="metodo.valor">{{ metodo.nombre
+                }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Url:</ion-label>
+            <ion-icon name="link-outline" slot="start"></ion-icon>
+            <ion-input type="text" name="url" [(ngModel)]="empresa.url"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-item>
+      <ion-label position="floating">Notas:</ion-label>
+      <ion-icon name="alert-circle-outline" slot="start"></ion-icon>
+      <ion-input type="text" name="notas" [(ngModel)]="empresa.notas"></ion-input>
+    </ion-item>
+    <ion-item class="ion-text-center" lines="none">
+      <ion-button type="submit" expand="block" color="primary" style="text-align: center;">Enviar</ion-button>
+    </ion-item>
+  </form>
+</ion-content>

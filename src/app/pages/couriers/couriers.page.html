@@ -16,18 +16,18 @@
   
   <p-divider align="left" type="dashed"></p-divider>
   <ion-searchbar animated="true" placeholder="Buscar empresa" inputmode="text" 
-    (ionChange) = "onSearchChange ( $event )"
-   
-  ></ion-searchbar>
+    (ionChange) = "onSearchChange ( $event )"></ion-searchbar>
+
   <div class="card">
     <ion-button size="small" (click)="excel()">Excel</ion-button>
     <ion-button size="small" (click)="nueva()">+</ion-button>
     <p-table [value]="listadoEmpresas | filtro:textoBuscar">
         <ng-template pTemplate="header">
             <tr>
-                <th pSortableColumn="Link">Link </th>
-                <th pSortableColumn="nombre">Nombre</th>
+                <th pSortableColumn="Link"></th>
+                <th pSortableColumn="nombre">Empresa</th>
                 <th pSortableColumn="contacto">Contacto</th>               
+                <th pSortableColumn="contacto">Gratis</th>               
                 <th pSortableColumn="url">URL</th>                
                 <th pSortableColumn="fechaingreso.date">Fecha</th>                
                 <th pSortableColumn="pagomensual">Cuota</th>
@@ -38,27 +38,31 @@
         </ng-template>
         <ng-template pTemplate="body" let-empresa>
             <tr>
-                <td>
-                    <ion-button (click)="verEmpresa( empresa.id,empresa.nombre,empresa )"  fill="clear" shape="round">
-                        <ion-icon   color="warning" style="font-size:20px;" name="business-outline"></ion-icon>
-                    </ion-button>
-                    <ion-button (click)="editarEmpresa( empresa )"  fill="clear" shape="round">                        
+                <td style="white-space: nowrap; text-align: center;">
+                    <span (click)="verEmpresa( empresa.id,empresa.nombre,empresa )"  fill="clear" shape="round" style="margin-right: 10px; cursor: pointer;" title="Reporte de empresa">
+                        <ion-icon   color="warning" style="font-size:20px;" name="business-outline" ></ion-icon>
+                    </span>
+                    <span (click)="editarEmpresa( empresa )"  fill="clear" shape="round" style="cursor: pointer;margin-right: 10px;" title="Editar empresa">                        
                         <ion-icon color="danger" style="font-size:20px;" name="create-outline"></ion-icon>
-                    </ion-button>
+                    </span>
+                    <span (click)="ingresarAbono( empresa )"  fill="clear" shape="round" style="cursor: pointer;" title="Ingresar pago">                        
+                        <ion-icon name="card-outline" style="font-size:19px;"></ion-icon>
+                    </span>
                     
                 </td>
                 <td>{{empresa.nombre}}</td>
                 <td>{{empresa.contacto}}</td>               
+                <td>${{ empresa.cobroporitemparamc }}</td>
                 <td (click)="abrirBrowswer(empresa.url)">
                    <ion-item  lines="none">
-                    <ion-label (click)="abrirBrowswer(empresa.url)" style="cursor: pointer;">Ver</ion-label>
+                    <ion-label (click)="abrirBrowswer(empresa.url)" style="cursor: pointer;" title="Ir a la URL de la empresa">Ver</ion-label>
                    </ion-item>
                  </td>
                 <td>{{empresa.fechaingreso.date | date}}</td>
                 <td>${{ empresa.pagomensual }}</td>
                 <!--<td>{{empresa.formadepago}}</td>-->
                 <td>{{empresa.version}}</td>
-                <td><span *ngIf="empresa.inactivo==='1'"><ion-icon color="danger" name="sunny-outline"></ion-icon></span> <span *ngIf="!empresa.inactivo "><ion-icon color="success" name="sunny-outline"></ion-icon></span></td>
+                <td><span *ngIf="empresa.inactivo==='1'"><ion-icon color="danger" name="sunny-outline" title="Empresa activa" class="pointer"></ion-icon></span> <span *ngIf="!empresa.inactivo "><ion-icon color="success" name="sunny-outline" title="Desactivada" class="pointer"></ion-icon></span></td>
             </tr>
         </ng-template>
     </p-table>
